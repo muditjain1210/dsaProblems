@@ -20,19 +20,18 @@ public class DelayedQueueExample {
 }
 
 class Employee implements Delayed {
-    @Override
-    public String toString() {
-        return "Employee [maxQueueLivingTime=" + maxQueueLivingTime + ", name=" + name + ", creationTime=" + creationTime + "]";
-    }
-
     private final long maxQueueLivingTime = 20000;
-    private String name;
-    private long creationTime;
-
+    private final String name;
+    private final long creationTime;
     public Employee(String name) {
 
         this.name = name;
         this.creationTime = System.currentTimeMillis();
+    }
+
+    @Override
+    public String toString() {
+        return "Employee [maxQueueLivingTime=" + maxQueueLivingTime + ", name=" + name + ", creationTime=" + creationTime + "]";
     }
 
     @Override
@@ -50,7 +49,7 @@ class Employee implements Delayed {
 }
 
 class PublisherDelayed implements Runnable {
-    private BlockingQueue<Employee> q;
+    private final BlockingQueue<Employee> q;
 
     public PublisherDelayed(BlockingQueue<Employee> q) {
         this.q = q;
@@ -59,7 +58,7 @@ class PublisherDelayed implements Runnable {
     @Override
     public void run() {
         Employee e1 = new Employee("mudit");
-        System.out.println("Adding emp object to queue" + e1.toString());
+        System.out.println("Adding emp object to queue" + e1);
         q.offer(e1);
         try {
             Thread.sleep(5000);
@@ -68,7 +67,7 @@ class PublisherDelayed implements Runnable {
             e.printStackTrace();
         }
         Employee e2 = new Employee("jain");
-        System.out.println("Adding emp object to queue" + e2.toString());
+        System.out.println("Adding emp object to queue" + e2);
         q.offer(e2);
 
     }
@@ -76,7 +75,7 @@ class PublisherDelayed implements Runnable {
 }
 
 class SubsriberDelayed implements Runnable {
-    private BlockingQueue<Employee> q;
+    private final BlockingQueue<Employee> q;
 
     public SubsriberDelayed(BlockingQueue<Employee> q) {
         this.q = q;
@@ -87,9 +86,9 @@ class SubsriberDelayed implements Runnable {
 
         try {
             Employee e1 = q.take();
-            System.out.println("removing from Q" + e1.toString());
+            System.out.println("removing from Q" + e1);
             Employee e2 = q.take();
-            System.out.println("removing from Q" + e2.toString());
+            System.out.println("removing from Q" + e2);
         } catch (InterruptedException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();

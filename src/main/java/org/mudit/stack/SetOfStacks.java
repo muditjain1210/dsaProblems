@@ -5,7 +5,7 @@ import java.util.Stack;
 
 public class SetOfStacks<T> {
     public ArrayList<Stack<T>> setOfStack;
-    private int threshold;
+    private final int threshold;
 
     public SetOfStacks(int threshold) {
         this.threshold = threshold;

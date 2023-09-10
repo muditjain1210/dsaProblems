@@ -1,12 +1,6 @@
-package org.mudit.arrayNString;
+package org.mudit.array_string;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.TreeSet;
+import java.util.*;
 
 public class ArrayNStringProblems {
 
@@ -184,30 +178,6 @@ public class ArrayNStringProblems {
 
     }
 
-    public ArrayList<String> printPaths(char[][] board) {
-        ArrayList<String> out = new ArrayList<>();
-        StringBuilder b = new StringBuilder();
-        search(0, 0, board, b, out);
-        return out;
-    }
-
-    public void search(int i, int j, char[][] board, StringBuilder sb, ArrayList<String> out) {
-        if (i > board.length - 1 || j > board[0].length - 1) {
-            return;
-        }
-        sb.append(board[i][j]);
-
-        if (i == board.length - 1 && j == board[0].length - 1) {
-            out.add(sb.toString());
-            sb.deleteCharAt(sb.length() - 1);
-            return;
-        }
-        search(i + 1, j, board, sb, out);
-        search(i, j + 1, board, sb, out);
-        sb.deleteCharAt(sb.length() - 1);
-
-    }
-
     public static String isPossible(int a, int b, int c, int d) {
         while (c > 0 && d > 0) {
             if (c > d) {
@@ -287,7 +257,7 @@ public class ArrayNStringProblems {
 
     public static String insertPairStringAtIndex(String s, int i) {
         if (i == s.length() - 1) {
-            return (new StringBuilder().append(s.charAt(i))).toString();
+            return String.valueOf(s.charAt(i));
         }
         StringBuilder b = new StringBuilder();
 
@@ -442,6 +412,30 @@ public class ArrayNStringProblems {
             }
         }
         return arr;
+    }
+
+    public ArrayList<String> printPaths(char[][] board) {
+        ArrayList<String> out = new ArrayList<>();
+        StringBuilder b = new StringBuilder();
+        search(0, 0, board, b, out);
+        return out;
+    }
+
+    public void search(int i, int j, char[][] board, StringBuilder sb, ArrayList<String> out) {
+        if (i > board.length - 1 || j > board[0].length - 1) {
+            return;
+        }
+        sb.append(board[i][j]);
+
+        if (i == board.length - 1 && j == board[0].length - 1) {
+            out.add(sb.toString());
+            sb.deleteCharAt(sb.length() - 1);
+            return;
+        }
+        search(i + 1, j, board, sb, out);
+        search(i, j + 1, board, sb, out);
+        sb.deleteCharAt(sb.length() - 1);
+
     }
 }
 

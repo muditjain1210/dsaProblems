@@ -1,11 +1,11 @@
 package org.mudit.tree;
 
+import org.mudit.user_defined_data_structures.TreeNode;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import UserDefinedDataStructures.TreeNode;
 
 public class TreeTopView {
 

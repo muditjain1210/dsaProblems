@@ -1,4 +1,4 @@
-package org.mudit.arrayNString;
+package org.mudit.array_string;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -8,15 +8,14 @@ import java.util.HashSet;
  * A number is Happy (Yes, it is a thing!) if it follows a sequence that ends in 1 after following the steps given below :
  * Beginning with the number itself, replace it by the sum of the squares of its digits until either the number becomes 1 or loops endlessly
  * in a cycle that does not include 1.
- * 
+ * <p>
  * For instance, 19 is a happy number. Sequence:
  * 12 + 92 = 82
  * 82 + 22 = 68
  * 62 + 82 = 100
  * 12 + 02 + 02 = 1
- * 
- * @author jainm15
  *
+ * @author jainm15
  */
 public class HappyNumber {
 

@@ -3,11 +3,6 @@ package org.mudit.stack;
 //Stack Implemented using a Linked List..
 public class StackLL<T> {
 
-    private static class StackNode<T> {
-        private StackNode<T> next;
-        private T data;
-    }
-
     private StackNode<T> top;
 
     public boolean isEmpty() {
@@ -46,6 +41,11 @@ public class StackLL<T> {
             temp = temp.next;
         }
         return builder.toString();
+    }
+
+    private static class StackNode<T> {
+        private StackNode<T> next;
+        private T data;
     }
 }
 

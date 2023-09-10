@@ -1,15 +1,12 @@
 package org.mudit.greedy_programs;
 
+import org.mudit.user_defined_data_structures.ListNode;
+
 import java.util.HashSet;
 import java.util.Scanner;
 
-import UserDefinedDataStructures.ListNode;
-
 /**
- * 
- * 
  * @author jainm15
- *
  */
 public class Solution {
 

@@ -1,10 +1,10 @@
 package org.mudit.tree;
 
+import org.mudit.user_defined_data_structures.TreeNode;
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
-
-import UserDefinedDataStructures.TreeNode;
 
 public class TreeLevelOrderTraveral {
 

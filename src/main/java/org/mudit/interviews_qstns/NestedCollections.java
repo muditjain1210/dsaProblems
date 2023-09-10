@@ -64,7 +64,7 @@ public class NestedCollections<T> implements Iterable<T> {
 }
 
 class Driver {
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         NestedCollections<Integer> n4 = new NestedCollections<>(null);
         NestedCollections<Integer> n3 = new NestedCollections<>(n4);
         NestedCollections<Integer> n2 = new NestedCollections<>(n3);

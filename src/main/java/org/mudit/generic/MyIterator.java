@@ -1,5 +1,7 @@
 package org.mudit.generic;
+
 import java.util.Iterator;
+
 //Special Iterator which iterates over alternate elements..
 public class MyIterator<E> implements Iterator<E> {
     Iterator<E> iter;

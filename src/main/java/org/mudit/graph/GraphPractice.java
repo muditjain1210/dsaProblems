@@ -3,36 +3,13 @@ package org.mudit.graph;
 
 //Java Program to demonstrate adjacency list 
 //representation of graphs 
+
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
 
 public class GraphPractice {
-    // A user define class to represent a graph.
-    // A graph is an array of adjacency lists.
-    // Size of array will be V (number of vertices
-    // in graph)
-    static class Graph {
-        int V;
-        LinkedList<Integer> adjListArray[];
-
-        // constructor
-        Graph(int V) {
-            this.V = V;
-
-            // define the size of array as
-            // number of vertices
-            adjListArray = new LinkedList[V];
-
-            // Create a new list for each vertex
-            // such that adjacent nodes can be stored
-            for (int i = 0; i < V; i++) {
-                adjListArray[i] = new LinkedList<>();
-            }
-        }
-    }
-
     // Adds an edge to an undirected graph
     static void addEdge(Graph graph, int src, int dest) {
         // Add an edge from src to dest.
@@ -131,7 +108,7 @@ public class GraphPractice {
     }
 
     // Driver program to test above functions
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         // create the graph given in above figure
         int V = 5;
         Graph graph = new Graph(V);
@@ -150,6 +127,30 @@ public class GraphPractice {
         // System.out.println();
         // BreadthFirstSearch(graph);
         DFSRecursive(graph);
+    }
+
+    // A user define class to represent a graph.
+    // A graph is an array of adjacency lists.
+    // Size of array will be V (number of vertices
+    // in graph)
+    static class Graph {
+        int V;
+        LinkedList<Integer>[] adjListArray;
+
+        // constructor
+        Graph(int V) {
+            this.V = V;
+
+            // define the size of array as
+            // number of vertices
+            adjListArray = new LinkedList[V];
+
+            // Create a new list for each vertex
+            // such that adjacent nodes can be stored
+            for (int i = 0; i < V; i++) {
+                adjListArray[i] = new LinkedList<>();
+            }
+        }
     }
 
 }

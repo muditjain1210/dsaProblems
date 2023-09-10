@@ -3,14 +3,13 @@ package org.mudit.bit_manuplation;
 /**
  * Given two input integers a and b, write a method to determine the number of bits required to
  * be swapped to convert a to b.
- * 
+ * <p>
  * Example:
- * 
+ * <p>
  * a = 21, Binary code = 10101
  * b = 31, Binary code = 11111
- * 
- * @author jainm15
  *
+ * @author jainm15
  */
 
 public class BitSwappedRequired {

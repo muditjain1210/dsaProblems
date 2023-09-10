@@ -1,11 +1,14 @@
 package org.mudit.dynamic_programming;
 
+import org.mudit.user_defined_data_structures.Square;
+
 import java.util.HashMap;
 import java.util.Map;
 
-import org.mudit.user_defined_data_structures.Square;
-
 public class CountNumberOfPathsInGameBoard {
+
+    static Map<Square, Integer> map = new HashMap<>();
+    static int count = 0;
 
     public static void main(String[] args) {
 
@@ -22,8 +25,6 @@ public class CountNumberOfPathsInGameBoard {
         System.out.println(end - start);
 
     }
-
-    static Map<Square, Integer> map = new HashMap<>();
 
     public static int countPathsFromThisSquareDynamic(int x, int y, int m, int n) {
         if (x == m && y == n) {
@@ -44,8 +45,6 @@ public class CountNumberOfPathsInGameBoard {
         map.put(s, rpaths + dpaths);
         return rpaths + dpaths;
     }
-
-    static int count = 0;
 
     public static void countPathsFromThisSquareNormal(int x, int y, int m, int n) {
         if (x == m && y == n) {

@@ -1,19 +1,16 @@
 package org.mudit.tree;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.Stack;
+import org.mudit.user_defined_data_structures.TreeNode;
 
-import UserDefinedDataStructures.TreeNode;
+import java.util.*;
 
 public class TreeProblems {
     public static int j = 0;
     public static int maxSum = 0;
+    public static int i = 0;
     public ArrayList<Integer> rangeList = new ArrayList<Integer>();
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
 
         TreeNode n2 = new TreeNode(2, null, null);
         TreeNode n3 = new TreeNode(3, null, null);
@@ -24,15 +21,6 @@ public class TreeProblems {
         System.out.println(map);
     }
 
-    public int diameter(TreeNode root) {
-
-        diameterHelper(root);
-        int val = maxSum;
-        maxSum = 0;
-        return val;
-
-    }
-
     static int findMin(BSTNode root) {
         if (root == null) {
             return Integer.MIN_VALUE;
@@ -41,37 +29,6 @@ public class TreeProblems {
             root = root.left;
         }
         return root.data;
-    }
-
-    public void printRange(TreeNode root, int a, int b) {
-
-        if (root == null) {
-            return;
-        }
-        if (root.data >= b) {
-            printRange(root.left, a, b);
-        } else if (root.data <= a) {
-            printRange(root.right, a, b);
-        }
-        if (root.data >= a && root.data <= b) {
-            rangeList.add(root.data);
-            printRange(root.left, a, b);
-            printRange(root.right, a, b);
-        }
-
-    }
-
-    public int diameterHelper(TreeNode root) {
-        if (root == null) {
-            return 0;
-        }
-        int leftSum = diameterHelper(root.left);
-        int rightSum = diameterHelper(root.right);
-
-        int val = Math.max(1 + leftSum, 1 + rightSum);
-        maxSum = Math.max(maxSum, 1 + leftSum + rightSum);
-        return val;
-
     }
 
     public static ArrayList<Integer> levelorder(TreeNode root) {
@@ -208,8 +165,6 @@ public class TreeProblems {
         return restoreTreeHelper(strs);
     }
 
-    public static int i = 0;
-
     public static TreeNode restoreTreeHelper(String[] arr) {
 
         if (i == arr.length || arr[i].equals("*")) {
@@ -221,6 +176,46 @@ public class TreeProblems {
         ++i;
         root.right = restoreTreeHelper(arr);
         return root;
+
+    }
+
+    public int diameter(TreeNode root) {
+
+        diameterHelper(root);
+        int val = maxSum;
+        maxSum = 0;
+        return val;
+
+    }
+
+    public void printRange(TreeNode root, int a, int b) {
+
+        if (root == null) {
+            return;
+        }
+        if (root.data >= b) {
+            printRange(root.left, a, b);
+        } else if (root.data <= a) {
+            printRange(root.right, a, b);
+        }
+        if (root.data >= a && root.data <= b) {
+            rangeList.add(root.data);
+            printRange(root.left, a, b);
+            printRange(root.right, a, b);
+        }
+
+    }
+
+    public int diameterHelper(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        int leftSum = diameterHelper(root.left);
+        int rightSum = diameterHelper(root.right);
+
+        int val = Math.max(1 + leftSum, 1 + rightSum);
+        maxSum = Math.max(maxSum, 1 + leftSum + rightSum);
+        return val;
 
     }
 }

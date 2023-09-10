@@ -4,14 +4,13 @@ import java.util.ArrayList;
 
 /**
  * Max heap insert and delete operations
- * 
- * @author jainm15
  *
+ * @author jainm15
  */
 public class HeapOperations {
 
     public static void main(String[] args) {
-        int arr[] = { 30, 40, 45, 1, 5, 7, 90 };
+        int[] arr = {30, 40, 45, 1, 5, 7, 90};
         ArrayList<Integer> al = new ArrayList<>();
         for (int i = 0; i < arr.length; i++) {
             al.add(arr[i]);
@@ -23,7 +22,7 @@ public class HeapOperations {
     /**
      * Max heap insert
      * Works in O(NLogN) for N insertions
-     * 
+     *
      * @param arr
      * @return
      */

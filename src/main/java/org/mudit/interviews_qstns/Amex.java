@@ -31,18 +31,6 @@ public class Amex {
         System.out.println(shift);
     }
 
-    public int solution(int[] A) {
-        // write your code in Java SE 8
-        HashMap<Integer, Integer> map = new HashMap<>();
-        for (int i = 0; i < A.length; i++) {
-            if (map.containsKey(i)) {
-                return 0;
-            }
-            map.put(new Integer(i), 1);
-        }
-        return 0;
-    }
-
     public static String solution(String S) {
         StringBuilder result = new StringBuilder();
         int count = 0;
@@ -71,6 +59,18 @@ public class Amex {
             return newStr;
         }
         return s;
+    }
+
+    public int solution(int[] A) {
+        // write your code in Java SE 8
+        HashMap<Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i < A.length; i++) {
+            if (map.containsKey(i)) {
+                return 0;
+            }
+            map.put(Integer.valueOf(i), 1);
+        }
+        return 0;
     }
 
 }

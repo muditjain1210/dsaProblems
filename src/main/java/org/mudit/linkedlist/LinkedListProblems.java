@@ -1,6 +1,6 @@
 package org.mudit.linkedlist;
 
-import UserDefinedDataStructures.Node;
+import org.mudit.user_defined_data_structures.Node;
 
 public class LinkedListProblems {
 
@@ -226,6 +226,19 @@ public class LinkedListProblems {
         return 1 + findSize(head.next);
     }
 
+    public static Node reverseLL(Node head) {
+        Node prev = null;
+        Node temp = null;
+        while (head != null) {
+            temp = head.next; // save head.next
+            head.next = prev;
+
+            prev = head;
+            head = temp;
+        }
+        return prev;
+    }
+
     public Node deleteKthNodeFromEnd(Node head, int k) {
         if (head == null) {
             return head;
@@ -238,19 +251,6 @@ public class LinkedListProblems {
             i++;
         }
         return null;
-    }
-
-    public static Node reverseLL(Node head) {
-        Node prev = null;
-        Node temp = null;
-        while (head != null) {
-            temp = head.next; // save head.next
-            head.next = prev;
-
-            prev = head;
-            head = temp;
-        }
-        return prev;
     }
 
 }

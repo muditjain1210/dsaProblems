@@ -4,14 +4,13 @@ import java.util.Stack;
 
 public class MinStack {
 
+    private final Stack<Integer> mainStack;
+    private final Stack<Integer> minStack;
     public MinStack(Stack<Integer> mainStack, Stack<Integer> minStack) {
         super();
         this.mainStack = mainStack;
         this.minStack = minStack;
     }
-
-    private Stack<Integer> mainStack;
-    private Stack<Integer> minStack;
 
     public void push(int num) {
         // first time put first element o both stack

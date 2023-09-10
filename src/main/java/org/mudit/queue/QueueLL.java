@@ -3,11 +3,6 @@ package org.mudit.queue;
 //Queue Implemented using Linked List..
 public class QueueLL<T> {
 
-    private static class QueueNode<T> {
-        private QueueNode<T> next;
-        private T data;
-    }
-
     private QueueNode<T> head;
     private QueueNode<T> tail;
 
@@ -57,6 +52,11 @@ public class QueueLL<T> {
             temp = temp.next;
         }
         return builder.toString();
+    }
+
+    private static class QueueNode<T> {
+        private QueueNode<T> next;
+        private T data;
     }
 }
 

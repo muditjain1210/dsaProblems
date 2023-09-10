@@ -1,4 +1,4 @@
-package org.mudit.arrayNString;
+package org.mudit.array_string;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,8 +1,10 @@
 package org.mudit.tree;
 
-import UserDefinedDataStructures.TreeNode;
+import org.mudit.user_defined_data_structures.TreeNode;
 
 public class FindMaxInEvenOddBST {
+
+    public static int level = 1;
 
     public static void main(String[] args) {
 
@@ -24,8 +26,6 @@ public class FindMaxInEvenOddBST {
 
         System.out.println(findMaxNode(root));
     }
-
-    public static int level = 1;
 
     static TreeNode findMaxNode(TreeNode root) {
         if (root == null) {

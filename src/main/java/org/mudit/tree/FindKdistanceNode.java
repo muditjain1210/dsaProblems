@@ -1,12 +1,8 @@
 package org.mudit.tree;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
+import org.mudit.user_defined_data_structures.TreeNode;
 
-import UserDefinedDataStructures.TreeNode;
+import java.util.*;
 
 public class FindKdistanceNode {
 

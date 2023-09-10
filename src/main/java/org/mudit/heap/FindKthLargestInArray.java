@@ -5,14 +5,13 @@ import java.util.ArrayList;
 /**
  * Find kth largest element in a array.
  * We will use heap to find this.
- * 
- * @author jainm15
  *
+ * @author jainm15
  */
 public class FindKthLargestInArray {
 
     public static void main(String[] args) {
-        int arr[] = { 30, 40, 45, 1, 5, 7, 90 };
+        int[] arr = {30, 40, 45, 1, 5, 7, 90};
         ArrayList<Integer> al = new ArrayList<>();
         for (int i = 0; i < arr.length; i++) {
             al.add(arr[i]);

@@ -1,4 +1,4 @@
-package org.mudit.arrayNString;
+package org.mudit.array_string;
 
 //Reversing a long String via a String vs. a StringBuffer
 public class StringsBenchMark {

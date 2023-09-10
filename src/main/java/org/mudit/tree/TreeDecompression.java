@@ -1,6 +1,6 @@
 package org.mudit.tree;
 
-import UserDefinedDataStructures.TreeNode;
+import org.mudit.user_defined_data_structures.TreeNode;
 
 /**
  * Given a String that represents a Binary Tree, write a method - decompressTree that decompresses that tree (reconstructs the tree) and
@@ -8,23 +8,20 @@ import UserDefinedDataStructures.TreeNode;
  * TreeNode's data values were appended to the String, delimited by commas. Also, null TreeNodes were denoted by appending an asterisk - *.
  * The input String denotes the structure of a Full Binary Tree - i.e. a tree that is structurally balanced. However, the reconstructed tree
  * may not be a full tree as the String included * characters, which represent null TreeNodes.
- * 
+ *
  * <p>
  * Note:
  * You can assume that if a Binary Tree contains k levels, the compressed String will contain 2k-1 elements - either numbers or *.</em>
  * <p>
  * Example:
  * Compressed String : "1,2,3,4,*,6,*"
- * 
+ * <p>
  * Output Tree:
  * 1
  * / \
  * 2 3
  * / /
  * 4 6
- * 
- * 
- *
  */
 public class TreeDecompression {
 

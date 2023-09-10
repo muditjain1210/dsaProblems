@@ -1,8 +1,11 @@
 package org.mudit.tree;
 
-import UserDefinedDataStructures.TreeNode;
+import org.mudit.user_defined_data_structures.TreeNode;
 
 public class FindInorderSuccessor {
+    static boolean isPreVisited = false;
+    static TreeNode succ = null;
+
     public static void main(String[] args) {
         TreeNode n8 = new TreeNode(8, null, null);
         TreeNode n9 = new TreeNode(9, null, null);
@@ -23,9 +26,6 @@ public class FindInorderSuccessor {
         System.out.println(succ);
 
     }
-
-    static boolean isPreVisited = false;
-    static TreeNode succ = null;
 
     static void findInorderSuccesor(TreeNode root, TreeNode node) {
 

@@ -2,15 +2,16 @@ package org.mudit.hash_map;
 
 import java.util.Collection;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
+
 //Own implemented HashMap
 public class MyHashMap<K, V> implements Map<K, V> {
-    private HashMapEntry<K, V>[] table;
-    private int size; // total number of key-values in map
-    private int threshold;  // resizing barrier( size* DEFAULT_LOAD_FACTOR)
-
     private static final int DEFAULT_SIZE = 16;
     private static final float DEFAULT_LOAD_FACTOR = 0.75f;
+    private final HashMapEntry<K, V>[] table;
+    private int size; // total number of key-values in map
+    private int threshold;  // resizing barrier( size* DEFAULT_LOAD_FACTOR)
 
     public MyHashMap() {
         this.table = new HashMapEntry[DEFAULT_SIZE];
@@ -22,24 +23,9 @@ public class MyHashMap<K, V> implements Map<K, V> {
         this.threshold = (int) (cap * DEFAULT_LOAD_FACTOR);
     }
 
-    static class HashMapEntry<K, V> {
-
-        K key; // to store key
-        V value; // to store value
-        int hashcode;   // to store hashCode of key
-        HashMapEntry<K, V> next;  // pointer to next node
-
-        HashMapEntry(int hashcode, K key, V value, HashMapEntry<K, V> next) {
-            this.hashcode = hashcode;
-            this.key = key;
-            this.value = value;
-            this.next = next;
-        }
-
-        @Override
-        public String toString() {
-            return "HashMapEntry [key=" + key + ", value=" + value + ", hashcode=" + hashcode + ", next=" + next + "]";
-        }
+    private static int hash(Object key) {
+        int h;
+        return key == null ? 0 : (h = key.hashCode()) ^ (h >>> 16);
     }
 
     @Override
@@ -60,7 +46,7 @@ public class MyHashMap<K, V> implements Map<K, V> {
             for (HashMapEntry<K, V> tempNode = table[bucket]; tempNode != null; tempNode = tempNode.next) {
 
                 if (hashCode == tempNode.hashcode &&
-                        ((key == tempNode.key) || (key != null && key.equals(tempNode.key)))) {
+                        (Objects.equals(key, tempNode.key))) {
                     // we hit the node whose key is logically equals to parameter key
                     HashMapEntry<K, V> n2 = tempNode;
                     tempNode.value = value; // replace the original value with new value
@@ -77,11 +63,6 @@ public class MyHashMap<K, V> implements Map<K, V> {
             resize();
         }
         return null;
-    }
-
-    private static int hash(Object key) {
-        int h;
-        return key == null ? 0 : (h = key.hashCode()) ^ (h >>> 16);
     }
 
     // re
@@ -117,7 +98,7 @@ public class MyHashMap<K, V> implements Map<K, V> {
         }
         for (HashMapEntry<K, V> tempNode = table[bucket]; tempNode != null; tempNode = tempNode.next) {
             if (hashCode == tempNode.hashcode &&
-                    ((key == tempNode.key) || (key != null && key.equals(tempNode.key)))) {
+                    (Objects.equals(key, tempNode.key))) {
                 // we hit the node whose key is logically equals to parameter key
                 return tempNode.value;
             }
@@ -183,5 +164,25 @@ public class MyHashMap<K, V> implements Map<K, V> {
     public boolean containsValue(Object value) {
         // TODO Auto-generated method stub
         return false;
+    }
+
+    static class HashMapEntry<K, V> {
+
+        K key; // to store key
+        V value; // to store value
+        int hashcode;   // to store hashCode of key
+        HashMapEntry<K, V> next;  // pointer to next node
+
+        HashMapEntry(int hashcode, K key, V value, HashMapEntry<K, V> next) {
+            this.hashcode = hashcode;
+            this.key = key;
+            this.value = value;
+            this.next = next;
+        }
+
+        @Override
+        public String toString() {
+            return "HashMapEntry [key=" + key + ", value=" + value + ", hashcode=" + hashcode + ", next=" + next + "]";
+        }
     }
 }

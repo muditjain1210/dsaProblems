@@ -2,14 +2,13 @@ package org.mudit.searching_sorting;
 
 /**
  * Sort an array with only 0s and 1s
- * 
- * @author jainm15
  *
+ * @author jainm15
  */
 public class SortZeroOneArray {
 
     public static void main(String[] args) {
-        int arr[] = { 0, 1, 0, 1, 0, 0, 1, 0, 0, 1 };
+        int[] arr = {0, 1, 0, 1, 0, 0, 1, 0, 0, 1};
         sortArray(arr);
         for (int i : arr) {
             System.out.print(i + " ");

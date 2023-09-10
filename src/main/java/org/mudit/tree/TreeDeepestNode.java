@@ -1,16 +1,15 @@
 package org.mudit.tree;
 
+import org.mudit.user_defined_data_structures.TreeNode;
+
 import java.util.LinkedList;
 import java.util.Queue;
-
-import UserDefinedDataStructures.TreeNode;
 
 /**
  * Given a binary tree, write a method to find and return its deepest node.
  * Return null for an empty tree.
- * 
- * @author jainm15
  *
+ * @author jainm15
  */
 public class TreeDeepestNode {
 

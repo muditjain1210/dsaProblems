@@ -1,9 +1,10 @@
-package org.mudit.arrayNString;
+package org.mudit.array_string;
+
 import java.util.HashMap;
 import java.util.Map;
 
 public class checkPalindromePermutation {
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         String str = "aabaacceeqqhhooh";
         System.out.println(checkPermutat(str));
 
@@ -12,7 +13,7 @@ public class checkPalindromePermutation {
     /**
      * Check if any of string permutation is a palindrome.
      * It will be only iff it has at most one odd character.
-     * 
+     *
      * @param str
      * @return
      */

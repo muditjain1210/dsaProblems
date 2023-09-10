@@ -1,23 +1,23 @@
-package org.mudit.arrayNString;
+package org.mudit.array_string;
 
 public class RotateMatrixBy90 {
 
     public static void main(String[] args) {
-        int[][] mat = { { 1, 2, 3, 4 }, { 5, 6, 7, 8 }, { 9, 10, 11, 12 }, { 13, 14, 15, 16 } };
+        int[][] mat = {{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}, {13, 14, 15, 16}};
 
         rotateMatrixAntiClockwiseUsingTransposeAndHorizontalFlip(mat);
         displayMatrix(mat);
 
     }
 
-    static void rotateMatrixClockwiseUsingTransposeAndVerticalFlip(int mat[][]) {
+    static void rotateMatrixClockwiseUsingTransposeAndVerticalFlip(int[][] mat) {
         // First Transpose the matrix i.e change rows to columns and columns to rows..
         transposeMatrix(mat);
         // Now we will do vertical flip i.e swap values along vertical lines..
         flipAlongVerticalAxis(mat);
     }
 
-    static void rotateMatrixAntiClockwiseUsingTransposeAndHorizontalFlip(int mat[][]) {
+    static void rotateMatrixAntiClockwiseUsingTransposeAndHorizontalFlip(int[][] mat) {
         // First Transpose the matrix i.e change rows to columns and columns to rows..
         transposeMatrix(mat);
         // Now we will do horizontal flip i.e swap values along horizontal lines..
@@ -58,7 +58,7 @@ public class RotateMatrixBy90 {
     }
 
     // Function to print the matrix
-    static void displayMatrix(int mat[][]) {
+    static void displayMatrix(int[][] mat) {
         for (int i = 0; i < mat.length; i++) {
             for (int j = 0; j < mat.length; j++) {
                 System.out.print(" " + mat[i][j]);

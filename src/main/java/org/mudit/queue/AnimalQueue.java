@@ -4,10 +4,15 @@ import java.util.EmptyStackException;
 import java.util.LinkedList;
 import java.util.Queue;
 
+enum Mammal {
+    CAT,
+    DOG
+}
+
 public class AnimalQueue {
     private int count = 0;
-    private Queue<Animal> dogs;
-    private Queue<Animal> cats;
+    private final Queue<Animal> dogs;
+    private final Queue<Animal> cats;
 
     public AnimalQueue() {
         dogs = new LinkedList<>();
@@ -54,23 +59,17 @@ public class AnimalQueue {
     }
 
     private class Animal {
-        @Override
-        public String toString() {
-            return "Animal [type=" + type + ", stamp=" + stamp + "]";
-        }
-
-        private Mammal type;
-        private int stamp;
-
+        private final Mammal type;
+        private final int stamp;
         private Animal(Mammal type, int stamp) {
             this.type = type;
             this.stamp = stamp;
         }
+
+        @Override
+        public String toString() {
+            return "Animal [type=" + type + ", stamp=" + stamp + "]";
+        }
     }
 
-}
-
-enum Mammal {
-    CAT,
-    DOG
 }

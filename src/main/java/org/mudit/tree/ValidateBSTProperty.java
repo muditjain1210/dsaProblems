@@ -1,11 +1,14 @@
 package org.mudit.tree;
 
+import org.mudit.user_defined_data_structures.TreeNode;
+
 import java.util.LinkedList;
 import java.util.Queue;
 
-import UserDefinedDataStructures.TreeNode;
-
 public class ValidateBSTProperty {
+
+    public static int prev = Integer.MIN_VALUE;
+    public static boolean isBST = true;
 
     public static void main(String[] args) {
         TreeNode n4 = new TreeNode(2, null, null);
@@ -23,10 +26,6 @@ public class ValidateBSTProperty {
         // System.out.println(isBST);
 
     }
-
-    public static int prev = Integer.MIN_VALUE;
-
-    public static boolean isBST = true;
 
     public static void validateBST(TreeNode root) {
         if (root == null || !isBST) {

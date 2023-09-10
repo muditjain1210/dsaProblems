@@ -8,7 +8,7 @@ public class PubSubWithoutWaitNotify {
 
     // Publisher Subscriber using a shared Queue
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         SharedQueue2 sq = new SharedQueue2(new LinkedList<>(), 25);
         PubSubThread2 th1 = new PubSubThread2(sq, true);
         PubSubThread2 th2 = new PubSubThread2(sq, false);
@@ -20,8 +20,8 @@ public class PubSubWithoutWaitNotify {
 
 class PubSubThread2 extends Thread {
 
-    private SharedQueue2 q;
-    private boolean isPub;
+    private final SharedQueue2 q;
+    private final boolean isPub;
 
     public PubSubThread2(SharedQueue2 q, boolean isPub) {
         this.q = q;
@@ -44,8 +44,8 @@ class PubSubThread2 extends Thread {
 }
 
 class SharedQueue2 {
-    private Queue<Integer> queue;
-    private int MAX_SIZE;
+    private final Queue<Integer> queue;
+    private final int MAX_SIZE;
 
     public SharedQueue2(Queue<Integer> queue, int max_size) {
         this.queue = queue;

@@ -1,15 +1,14 @@
-package org.mudit.arrayNString;
+package org.mudit.array_string;
 
 import java.util.HashMap;
 
 /**
  * Rotate an array to the left by k positions without using extra space.k can be greater than the size of the array.
- * 
+ * <p>
  * Example:
  * rotateLeft({1,2,3,4,5},2) --> {3,4,5,1,2}
- * 
- * @author jainm15
  *
+ * @author jainm15
  */
 public class RotateLinearArray {
 

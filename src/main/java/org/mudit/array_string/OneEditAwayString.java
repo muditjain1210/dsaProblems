@@ -1,8 +1,8 @@
-package org.mudit.arrayNString;
+package org.mudit.array_string;
 
 public class OneEditAwayString {
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         String s1 = "pales";
         String s2 = "pala";
         System.out.println(checkOneEditAway(s1, s2));

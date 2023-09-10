@@ -1,20 +1,19 @@
-
 package org.mudit.graph;
+
+import org.mudit.user_defined_data_structures.DirectedGraph;
 
 import java.util.LinkedList;
 import java.util.Queue;
 
-import org.mudit.user_defined_data_structures.DirectedGraph;
-
 /**
  * This program check whether there is route between two vertices in a directed graph.
  * If there is path it will return {@code true } else {@code false}
- * 
- * @see DirectedGraph
+ *
  * @author MJ
+ * @see DirectedGraph
  */
 public class CheckRouteBtw2Nodes {
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         DirectedGraph g = new DirectedGraph(6);
         g.addEdge(0, 1);
         g.addEdge(1, 2);

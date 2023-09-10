@@ -1,15 +1,9 @@
 package org.mudit.user_defined_data_structures;
 
 public class TreeNode {
-    @Override
-    public String toString() {
-        return "TreeNode " + data;
-    }
-
     public int data;
     public TreeNode left;
     public TreeNode right;
-
     public TreeNode() {
 
     }
@@ -37,5 +31,10 @@ public class TreeNode {
 
         TreeNode root = new TreeNode(1, n2, n3);
         return root;
+    }
+
+    @Override
+    public String toString() {
+        return "TreeNode " + data;
     }
 }

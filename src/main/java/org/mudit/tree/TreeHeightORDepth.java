@@ -1,29 +1,15 @@
 package org.mudit.tree;
 
+import org.mudit.user_defined_data_structures.TreeNode;
+
 import java.util.LinkedList;
 import java.util.Queue;
-
-import UserDefinedDataStructures.TreeNode;
 
 public class TreeHeightORDepth {
 
     public static void main(String[] args) {
         // TODO Auto-generated method stub
 
-    }
-
-    public int minTreeDepthRecursive(TreeNode root) {
-        if (root == null) {
-            return 0;
-        }
-        return 1 + Math.min(minTreeDepthRecursive(root.left), minTreeDepthRecursive(root.right));
-    }
-
-    public int treeHeightRecursive(TreeNode root) {
-        if (root == null) {
-            return 0;
-        }
-        return 1 + Math.max(treeHeightRecursive(root.left), treeHeightRecursive(root.right));
     }
 
     public static int minTreeDepthIterative(TreeNode root) {
@@ -52,6 +38,20 @@ public class TreeHeightORDepth {
 
         }
         return minDepth;
+    }
+
+    public int minTreeDepthRecursive(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        return 1 + Math.min(minTreeDepthRecursive(root.left), minTreeDepthRecursive(root.right));
+    }
+
+    public int treeHeightRecursive(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        return 1 + Math.max(treeHeightRecursive(root.left), treeHeightRecursive(root.right));
     }
 
 }

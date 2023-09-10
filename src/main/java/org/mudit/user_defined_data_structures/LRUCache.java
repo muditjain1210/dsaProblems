@@ -11,10 +11,10 @@ import java.util.HashMap;
  * set(key, value) � Set or insert the value if the key is not already present. When the cache
  * reached its capacity, it should invalidate the least recently used item before inserting a new
  * item.
- * 
+ *
  * <p>
  * Examples:
- * 
+ * <p>
  * // Let�s say we have a LRU cache of capacity 2.
  * LRUCache cache = new LRUCache(2);
  * <p>
@@ -27,36 +27,30 @@ import java.util.HashMap;
  * cache.get(1); // returns -1 (not found)
  * cache.get(3); // returns 30
  * cache.get(4); // returns 40
- * 
- * @author jainm15
  *
+ * @author jainm15
  */
 public class LRUCache {
 
-    class Node {
-        int key;
-        int value;
-        Node pre;
-        Node next;
-
-        Node(int key, int value) {
-            this.key = key;
-            this.value = value;
-        }
-
-        @Override
-        public String toString() {
-            return "Node [key=" + key + ", value=" + value + "]";
-        }
-    }
-
-    private HashMap<Integer, Node> map;
-    private int capicity, count;
+    private final HashMap<Integer, Node> map;
+    private final int capicity;
+    private int count;
     private Node head, tail;
-
     public LRUCache(int capacity) {
         map = new HashMap<>();
         this.capicity = capacity;
+    }
+
+    public static void main(String[] args) {
+        LRUCache cache = new LRUCache(5);
+        cache.set(3, 10);
+        cache.set(5, 25);
+        cache.set(1, 11);
+        cache.set(2, 16);
+        cache.set(7, 19);
+        cache.get(3);
+        cache.get(7);
+        cache.set(6, 21);
     }
 
     // This method works in O(1)
@@ -119,15 +113,20 @@ public class LRUCache {
         map.put(key, node);
     }
 
-    public static void main(String args[]) {
-        LRUCache cache = new LRUCache(5);
-        cache.set(3, 10);
-        cache.set(5, 25);
-        cache.set(1, 11);
-        cache.set(2, 16);
-        cache.set(7, 19);
-        cache.get(3);
-        cache.get(7);
-        cache.set(6, 21);
+    class Node {
+        int key;
+        int value;
+        Node pre;
+        Node next;
+
+        Node(int key, int value) {
+            this.key = key;
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return "Node [key=" + key + ", value=" + value + "]";
+        }
     }
 }

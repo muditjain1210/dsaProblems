@@ -1,6 +1,6 @@
 package org.mudit.tree;
 
-import UserDefinedDataStructures.TreeNode;
+import org.mudit.user_defined_data_structures.TreeNode;
 
 /**
  * Given a binary tree consisting of nodes with positive integer values, write a method -
@@ -10,20 +10,21 @@ import UserDefinedDataStructures.TreeNode;
  * values of the nodes traversed along this path.
  * <p>
  * Example:
- * 
+ * <p>
  * 1
  * / \
  * 2 3 => 18
  * / \ / \
  * 4 5 6 7
- * 
+ * <p>
  * Path: 5 -> 2 -> 1 -> 3 -> 7
  * Max Sum = 5+2+1+3+7 = 18
- * 
- * @author jainm15
  *
+ * @author jainm15
  */
 public class TreeMaxSumPath {
+
+    public static int MAX = Integer.MIN_VALUE;
 
     public static void main(String[] args) {
         // TODO Auto-generated method stub
@@ -36,8 +37,6 @@ public class TreeMaxSumPath {
         MAX = 0;
         return sum;
     }
-
-    public static int MAX = Integer.MIN_VALUE;
 
     public static int maxSumPathHelper(TreeNode root) {
         if (root == null) {

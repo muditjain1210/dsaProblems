@@ -1,7 +1,7 @@
-package org.mudit.arrayNString;
+package org.mudit.array_string;
 
 public class UniqueCharacter {
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         String str = "abcdefghijlmnopqrstuvwxyz1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZZ!@#$%^&*()_+=-~-,./;'[]{}:<>?";
         long time = System.currentTimeMillis();
         for (int i = 0; i < 10000000; i++) {
@@ -38,7 +38,7 @@ public class UniqueCharacter {
         boolean isUnique = true;
         for (int i = 0; i < arr.length; i++) {
             int index = arr[i];
-            if (bol[index] == true) {
+            if (bol[index]) {
                 isUnique = false;
                 break;
             } else {

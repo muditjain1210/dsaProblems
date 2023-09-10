@@ -42,9 +42,6 @@ public class BalancedParentheses {
                 st.pop();
             }
         }
-        if (st.isEmpty()) {
-            return true;
-        }
-        return false;
+        return st.isEmpty();
     }
 }

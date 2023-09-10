@@ -1,10 +1,10 @@
 package org.mudit.interviews_qstns;
 
+import org.mudit.user_defined_data_structures.TreeNode;
+
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Queue;
-
-import UserDefinedDataStructures.TreeNode;
 
 public class Tracxn {
 

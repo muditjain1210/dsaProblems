@@ -1,4 +1,5 @@
 package org.mudit.generic;
+
 public class PhoneNumber implements Comparable<PhoneNumber> {
     private final short areaCode, prefix, lineNum;
 
@@ -15,7 +16,7 @@ public class PhoneNumber implements Comparable<PhoneNumber> {
         return (short) val;
     }
 
-    public static void main(String args[]) throws CloneNotSupportedException {
+    public static void main(String[] args) throws CloneNotSupportedException {
         PhoneNumber p = new PhoneNumber(800, 123, 4567);
         Object p2 = p.clone();
     }
@@ -24,9 +25,8 @@ public class PhoneNumber implements Comparable<PhoneNumber> {
     public boolean equals(Object o) {
         if (o == this)
             return true;
-        if (!(o instanceof PhoneNumber))
+        if (!(o instanceof PhoneNumber pn))
             return false;
-        PhoneNumber pn = (PhoneNumber) o;
         return pn.lineNum == lineNum && pn.prefix == prefix
                 && pn.areaCode == areaCode;
     }

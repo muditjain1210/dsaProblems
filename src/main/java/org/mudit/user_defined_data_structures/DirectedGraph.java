@@ -7,16 +7,14 @@ import java.util.LinkedList;
  * A graph is an array of adjacency lists.
  * Size of array will be V (number of vertices
  * in graph)
- * 
- * @author MJ
  *
+ * @author MJ
  */
 public class DirectedGraph {
     public int V;
-    public LinkedList<Integer> adjListArray[];
+    public LinkedList<Integer>[] adjListArray;
 
     /**
-     * 
      * @param V number of vertices in graph
      */
     public DirectedGraph(int V) {
@@ -35,7 +33,7 @@ public class DirectedGraph {
 
     /**
      * Adds an edge between src & dest vertex in graph.
-     * 
+     *
      * @param src
      * @param dest
      */

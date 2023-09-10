@@ -1,7 +1,8 @@
 package org.mudit.multi_threading;
+
 public class VolatileCheck extends Thread {
-    boolean isProducer;
     volatile static int count = 0;
+    boolean isProducer;
 
     VolatileCheck(boolean isProducer) {
         this.isProducer = isProducer;

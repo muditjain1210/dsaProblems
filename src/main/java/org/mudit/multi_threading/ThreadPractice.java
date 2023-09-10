@@ -2,7 +2,7 @@ package org.mudit.multi_threading;
 
 public class ThreadPractice {
 
-    public static void main(String args[]) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException {
         // lambda expression using Runnable interface..
         Runnable r = () -> System.out.println("running in new thread" + Thread.currentThread().getName());
 

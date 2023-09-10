@@ -1,6 +1,6 @@
 package org.mudit.tree;
 
-import UserDefinedDataStructures.TreeNode;
+import org.mudit.user_defined_data_structures.TreeNode;
 
 public class FirstCommonAncestor {
 

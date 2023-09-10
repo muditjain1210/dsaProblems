@@ -68,7 +68,7 @@ public class GolmanSchs {
                 b.append(ch[i]);
                 i++;
             }
-            System.out.println(b.toString());
+            System.out.println(b);
         }
 
         if (operation == 2) {
@@ -86,7 +86,7 @@ public class GolmanSchs {
                 b.append(ch[j]);
                 j++;
             }
-            System.out.println(b.toString());
+            System.out.println(b);
         }
         return null;
     }

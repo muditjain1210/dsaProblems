@@ -22,7 +22,7 @@ public class BlockingQueueExample {
 }
 
 class Publisher<T> implements Runnable {
-    private BlockingQueue<T> q;
+    private final BlockingQueue<T> q;
 
     public Publisher(BlockingQueue<T> q) {
         this.q = q;
@@ -33,7 +33,7 @@ class Publisher<T> implements Runnable {
         while (true) {
             try {
                 T obj = (T) new Object();
-                System.out.println("Adding item to Queue" + obj.toString());
+                System.out.println("Adding item to Queue" + obj);
                 q.put(obj);
             } catch (InterruptedException e) {
                 e.printStackTrace();
@@ -44,7 +44,7 @@ class Publisher<T> implements Runnable {
 }
 
 class Subsriber<T> implements Runnable {
-    private BlockingQueue<T> q;
+    private final BlockingQueue<T> q;
 
     public Subsriber(BlockingQueue<T> q) {
         this.q = q;
@@ -55,7 +55,7 @@ class Subsriber<T> implements Runnable {
         while (true) {
             try {
                 T obj = q.take();
-                System.out.println("Removing item from Queue" + obj.toString());
+                System.out.println("Removing item from Queue" + obj);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

@@ -6,8 +6,8 @@ public class Deadlock {
 
 
         MyRunnable2 run = new MyRunnable2();
-        run.a = new Integer(10);
-        run.b = new String("abc");
+        run.a = Integer.valueOf(10);
+        run.b = "abc";
         Thread th1 = new Thread(run);
         Thread th2 = new Thread(run);
         th1.start();

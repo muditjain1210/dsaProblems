@@ -6,7 +6,7 @@ import java.util.Queue;
 //Publisher Subscriber using a  shared Queue 
 public class PubSub {
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         Queue<Integer> queue = new LinkedList<>();
         Thread pub = new Thread(new Publisher2(queue));
         Thread sub = new Thread(new Subscriber2(queue));
@@ -17,7 +17,7 @@ public class PubSub {
 }
 
 class Publisher2 implements Runnable {
-    private Queue<Integer> queue;
+    private final Queue<Integer> queue;
 
     public Publisher2(Queue<Integer> q) {
         this.queue = q;
@@ -32,7 +32,7 @@ class Publisher2 implements Runnable {
                  * Condition checks must be placed in while loops. When an action is resumed, the waiting task doesn't know whether the
                  * condition it is waiting for is actually true; it only knows that it has been woken up. So, in order to maintain safety
                  * properties, it must check again.
-                 * 
+                 *
                  * (Page 158).
                  */
                 while (queue.size() >= 10) {
@@ -57,7 +57,7 @@ class Publisher2 implements Runnable {
 }
 
 class Subscriber2 implements Runnable {
-    private Queue<Integer> queue;
+    private final Queue<Integer> queue;
 
     public Subscriber2(Queue<Integer> q) {
         this.queue = q;

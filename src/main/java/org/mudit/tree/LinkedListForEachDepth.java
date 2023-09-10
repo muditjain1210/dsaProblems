@@ -1,15 +1,14 @@
 package org.mudit.tree;
 
+import org.mudit.user_defined_data_structures.TreeNode;
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 
-import UserDefinedDataStructures.TreeNode;
-
 /**
  * This program will create Linked Lists from Tree Nodes at each level
- * 
- * @author jainm15
  *
+ * @author jainm15
  */
 public class LinkedListForEachDepth {
 

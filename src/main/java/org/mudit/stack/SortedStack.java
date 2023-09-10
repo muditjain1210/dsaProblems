@@ -3,7 +3,7 @@ package org.mudit.stack;
 import java.util.Stack;
 
 public class SortedStack extends Stack<Integer> {
-    private Stack<Integer> temp;
+    private final Stack<Integer> temp;
 
     public SortedStack() {
         super();

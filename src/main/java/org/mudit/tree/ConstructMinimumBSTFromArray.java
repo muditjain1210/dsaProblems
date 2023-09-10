@@ -1,21 +1,20 @@
 package org.mudit.tree;
 
-import UserDefinedDataStructures.TreeNode;
+import org.mudit.user_defined_data_structures.TreeNode;
 
 /**
  * This program construct minimum height BST from sorted input {@code array}
- * 
- * @author jainm15
  *
+ * @author jainm15
  */
 public class ConstructMinimumBSTFromArray {
-    public static void main(String args[]) {
-        int[] ar = { 1, 2, 3, 4, 5, 6, 7 };
+    public static void main(String[] args) {
+        int[] ar = {1, 2, 3, 4, 5, 6, 7};
 
         TreeLevelOrderTraveral.levelOrderTraversal(constructMinimumBST(ar));
 
         System.out.println("======================");
-        int[] ar2 = { 1, 2, 3, 4, 5, 6, 7, 8 };
+        int[] ar2 = {1, 2, 3, 4, 5, 6, 7, 8};
 
         TreeLevelOrderTraveral.levelOrderTraversal(constructMinimumBST(ar2));
 

@@ -13,11 +13,8 @@ package org.mudit.bit_manuplation;
  * the right cyclic shift of 9,736 by three bits is 1,217
  * the right cyclic shift of 9,736 by four bits is 268,435,760
  * the right cyclic shift of 9,736 by eleven bits is 809,500,676
- * 
+ * <p>
  * The function should accept N = 9736 and return K = 11;
- * 
- * 
- *
  */
 public class RightCyclicShift {
 
@@ -29,7 +26,7 @@ public class RightCyclicShift {
      * If n = n:
      * Time Complexity: O(log n) (actually it will always do 30 iterations)
      * Space Complexity: O(1)
-     * 
+     *
      * @param n The input number
      * @return The number of positions to shift to the right in order to obtain the maximum value
      */
@@ -55,7 +52,7 @@ public class RightCyclicShift {
         return maxK;
     }
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         largestCyclicShift(32);
     }
 }

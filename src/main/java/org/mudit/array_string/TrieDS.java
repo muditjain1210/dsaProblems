@@ -1,4 +1,4 @@
-package org.mudit.arrayNString;
+package org.mudit.array_string;
 
 import java.util.HashMap;
 
@@ -7,17 +7,17 @@ import java.util.HashMap;
  * of words or dictionaries. With a Trie, search complexities can be reduced to O(k) where k is the
  * key or word length. The auto correct on your iOS or Android keyboard uses a Trie of the most commonly
  * used words along with fuzzy match algorithms to auto correct and auto suggest words as you type.
- *
+ * <p>
  * Example:
  * trie.inserWord("AB")
  * trie.inserWord("ABS")
  * trie.inserWord("ADS")
  * trie.inserWord("ADSD")
  * trie.inserWord("ACS")
- * 
+ *
  * <p>
  * Internal Trie Structure:
- * 
+ *
  * <br>
  * A
  * <br>
@@ -38,8 +38,6 @@ import java.util.HashMap;
  * when differentiating between words and prefixes. For example, searchPrefix("AC") should return true,
  * but since C is not a word boundary, searchWord("AC") should return false.
  * The TrieNode class has a Boolean - isLeaf that is used to denote if the node is a word boundary.
- * 
- * 
  */
 public class TrieDS {
 
@@ -57,14 +55,14 @@ public class TrieDS {
 }
 
 class Trie {
-    @Override
-    public String toString() {
-        return "Trie [root=" + root + "]";
-    }
-
     private TrieNode root;
 
     public Trie() {
+    }
+
+    @Override
+    public String toString() {
+        return "Trie [root=" + root + "]";
     }
 
     public void insertWord(String word) {
@@ -106,7 +104,7 @@ class Trie {
             }
             node = node.children.get(ch[i]);
         }
-        return node.isLeaf ? true : false;
+        return node.isLeaf;
     }
 
     public Boolean searchPrefix(String word) {

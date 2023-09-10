@@ -1,8 +1,8 @@
 package org.mudit.linkedlist;
 
-import java.util.ArrayList;
+import org.mudit.user_defined_data_structures.ListNode;
 
-import UserDefinedDataStructures.ListNode;
+import java.util.ArrayList;
 
 /**
  * Write a method to merge k Sorted Linked Lists. Why would you ever want to do that? Well, if
@@ -22,9 +22,8 @@ import UserDefinedDataStructures.ListNode;
  * Note:
  * mergeKLists takes in an ArrayList of ListNodes - lists, where each ListNode is the head of a
  * custom Linked List structure.
- * 
- * @author jainm15
  *
+ * @author jainm15
  */
 public class MergeKSortedLL {
 

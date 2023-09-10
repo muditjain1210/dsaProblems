@@ -1,8 +1,8 @@
 package org.mudit.tree;
 
-import java.util.Stack;
+import org.mudit.user_defined_data_structures.TreeNode;
 
-import UserDefinedDataStructures.TreeNode;
+import java.util.Stack;
 
 public class TreeSpiralTraversal {
 

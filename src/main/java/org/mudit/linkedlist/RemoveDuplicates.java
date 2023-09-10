@@ -1,20 +1,19 @@
 package org.mudit.linkedlist;
 
-import java.util.HashSet;
+import org.mudit.user_defined_data_structures.ListNode;
 
-import UserDefinedDataStructures.ListNode;
+import java.util.HashSet;
 
 /**
  * Given a singly-linked list, remove duplicates in the list and return head of the list.
  * Target a worst case space complexity of O(n).
- * 
+ * <p>
  * Examples:
  * 1->2->2->4->3->1 ==> 1->2->4->3
  * 1 ==> 1
  * "" ==> ""
- * 
- * @author jainm15
  *
+ * @author jainm15
  */
 public class RemoveDuplicates {
 

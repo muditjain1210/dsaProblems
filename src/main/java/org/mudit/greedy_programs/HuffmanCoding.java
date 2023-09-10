@@ -6,8 +6,8 @@ import java.util.PriorityQueue;
 public class HuffmanCoding {
 
     public static void main(String[] args) {
-        char[] chars = { 'a', 'b', 'c', 'd', 'e', 'f' };
-        int[] freq = { 5, 9, 12, 13, 16, 45 };
+        char[] chars = {'a', 'b', 'c', 'd', 'e', 'f'};
+        int[] freq = {5, 9, 12, 13, 16, 45};
         huffmanEncode(chars, freq);
     }
 
@@ -17,7 +17,7 @@ public class HuffmanCoding {
 
         // Prepare Huffman code from the HuffMan tree..
         HashMap<Character, String> table = new HashMap<>();
-        prepareHuffManCodeTable(root, new String(), table);
+        prepareHuffManCodeTable(root, "", table);
         System.out.println(table);
 
     }
@@ -72,18 +72,18 @@ class HuffManTreeNode implements Comparable<Object> {
     Integer frequency;
     char character;
 
-    @Override
-    public int compareTo(Object o) {
-        HuffManTreeNode node = (HuffManTreeNode) o;
-        // Node with minimum frequency should have highest priority(top of min heap)
-        return frequency.compareTo(node.frequency);
-    }
-
     public HuffManTreeNode(HuffManTreeNode left, HuffManTreeNode right, Integer frequency, char character) {
         this.left = left;
         this.right = right;
         this.frequency = frequency;
         this.character = character;
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        HuffManTreeNode node = (HuffManTreeNode) o;
+        // Node with minimum frequency should have highest priority(top of min heap)
+        return frequency.compareTo(node.frequency);
     }
 
     @Override

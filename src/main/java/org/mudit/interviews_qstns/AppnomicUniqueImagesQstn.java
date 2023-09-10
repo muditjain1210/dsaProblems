@@ -6,10 +6,29 @@ import java.util.Set;
 
 public class AppnomicUniqueImagesQstn {
 
+    public static void printImages(Set<Image> images) {
+        for (Image image : images) {
+            System.out.println(image);
+        }
+    }
+
+    public static void main(String[] args) {
+        Image[] images = {new Image("flag.jpg", 40, 60),
+                new Image("flag.gif", 40, 60),
+                new Image("smile.gif", 100, 200),
+                new Image("smile.gif", 50, 400),
+                new Image("other.jpg", 40, 60),
+                new Image("lenna.jpg", 512, 512),
+                new Image("Lenna.jpg", 512, 512)};
+
+        Set<Image> set = new HashSet<Image>(Arrays.asList(images));
+        AppnomicUniqueImagesQstn.printImages(set);
+    }
+
     static class Image {
-        private String filename;
-        private int width;
-        private int height;
+        private final String filename;
+        private final int width;
+        private final int height;
 
         public Image(String filename, int width, int height) {
             this.filename = filename;
@@ -51,24 +70,5 @@ public class AppnomicUniqueImagesQstn {
         public String toString() {
             return "Image: filename=" + filename + " Size=" + width * height;
         }
-    }
-
-    public static void printImages(Set<Image> images) {
-        for (Image image : images) {
-            System.out.println(image);
-        }
-    }
-
-    public static void main(String[] args) {
-        Image[] images = { new Image("flag.jpg", 40, 60),
-                new Image("flag.gif", 40, 60),
-                new Image("smile.gif", 100, 200),
-                new Image("smile.gif", 50, 400),
-                new Image("other.jpg", 40, 60),
-                new Image("lenna.jpg", 512, 512),
-                new Image("Lenna.jpg", 512, 512) };
-
-        Set<Image> set = new HashSet<Image>(Arrays.asList(images));
-        AppnomicUniqueImagesQstn.printImages(set);
     }
 }
