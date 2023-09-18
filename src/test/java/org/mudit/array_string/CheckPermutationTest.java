@@ -3,7 +3,7 @@ package org.mudit.array_string;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-class checkPermutationTest {
+class CheckPermutationTest {
 
     @Test
     void checkPermutat() {

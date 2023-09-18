@@ -134,8 +134,6 @@ public class ArrayNStringProblems {
             if (ar[i] != ar[j]) {
                 isPal = false;
                 break;
-            } else {
-                continue;
             }
         }
         return isPal;
