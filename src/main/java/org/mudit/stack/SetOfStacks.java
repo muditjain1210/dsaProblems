@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.Stack;
 
 public class SetOfStacks<T> {
-    public ArrayList<Stack<T>> setOfStack;
     private final int threshold;
+    public ArrayList<Stack<T>> setOfStack;
 
     public SetOfStacks(int threshold) {
         this.threshold = threshold;

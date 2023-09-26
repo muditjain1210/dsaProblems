@@ -52,96 +52,97 @@ public class TrieDS {
         System.out.println(trie.searchWord("AC"));
     }
 
-}
+    private static class Trie {
+        private TrieNode root;
 
-class Trie {
-    private TrieNode root;
-
-    public Trie() {
-    }
-
-    @Override
-    public String toString() {
-        return "Trie [root=" + root + "]";
-    }
-
-    public void insertWord(String word) {
-        if (word == null || word.isEmpty()) {
-            return;
+        public Trie() {
         }
-        char[] ch = word.toCharArray();
 
-        if (root == null) {
-            root = new TrieNode(ch[0]);
+        @Override
+        public String toString() {
+            return "Trie [root=" + root + "]";
         }
-        TrieNode node = root;
-        for (int i = 1; i < ch.length; i++) {
-            if (node.children.containsKey(ch[i])) {
+
+        public void insertWord(String word) {
+            if (word == null || word.isEmpty()) {
+                return;
+            }
+            char[] ch = word.toCharArray();
+
+            if (root == null) {
+                root = new TrieNode(ch[0]);
+            }
+            TrieNode node = root;
+            for (int i = 1; i < ch.length; i++) {
+                if (node.children.containsKey(ch[i])) {
+                    node = node.children.get(ch[i]);
+                    continue;
+                }
+                TrieNode temp = new TrieNode(ch[i]);
+                node.children.put(ch[i], temp);
+                node.isLeaf = false;
+                node = temp;
+            }
+            node.isLeaf = true;
+        }
+
+        public Boolean searchWord(String word) {
+            if (root == null) {
+                return false;
+            }
+            char[] ch = word.toCharArray();
+            TrieNode node = root;
+
+            if (node.c != ch[0]) {
+                return false;
+            }
+            for (int i = 1; i < ch.length; i++) {
+                if (!node.children.containsKey(ch[i])) {
+                    return false;
+                }
                 node = node.children.get(ch[i]);
-                continue;
             }
-            TrieNode temp = new TrieNode(ch[i]);
-            node.children.put(ch[i], temp);
-            node.isLeaf = false;
-            node = temp;
+            return node.isLeaf;
         }
-        node.isLeaf = true;
-    }
 
-    public Boolean searchWord(String word) {
-        if (root == null) {
-            return false;
-        }
-        char[] ch = word.toCharArray();
-        TrieNode node = root;
-
-        if (node.c != ch[0]) {
-            return false;
-        }
-        for (int i = 1; i < ch.length; i++) {
-            if (!node.children.containsKey(ch[i])) {
+        public Boolean searchPrefix(String word) {
+            if (root == null) {
                 return false;
             }
-            node = node.children.get(ch[i]);
-        }
-        return node.isLeaf;
-    }
-
-    public Boolean searchPrefix(String word) {
-        if (root == null) {
-            return false;
-        }
-        char[] ch = word.toCharArray();
-        TrieNode node = root;
-        if (node.c != ch[0]) {
-            return false;
-        }
-        for (int i = 1; i < ch.length; i++) {
-            if (!node.children.containsKey(ch[i])) {
+            char[] ch = word.toCharArray();
+            TrieNode node = root;
+            if (node.c != ch[0]) {
                 return false;
             }
-            node = node.children.get(ch[i]);
+            for (int i = 1; i < ch.length; i++) {
+                if (!node.children.containsKey(ch[i])) {
+                    return false;
+                }
+                node = node.children.get(ch[i]);
+            }
+            return true;
         }
-        return true;
+    }
+
+    private static class TrieNode {
+
+        Character c;
+        Boolean isLeaf = false;
+
+        HashMap<Character, TrieNode> children = new HashMap<>();
+
+        public TrieNode() {
+        }
+
+        public TrieNode(Character c) {
+            this.c = c;
+        }
+
+        @Override
+        public String toString() {
+            return "TrieNode [c=" + c + ", isLeaf=" + isLeaf + ", children=" + children + "]";
+        }
     }
 }
 
-class TrieNode {
 
-    Character c;
-    Boolean isLeaf = false;
-
-    HashMap<Character, TrieNode> children = new HashMap<>();
-
-    public TrieNode() {
-    }
-
-    public TrieNode(Character c) {
-        this.c = c;
-    }
-
-    @Override
-    public String toString() {
-        return "TrieNode [c=" + c + ", isLeaf=" + isLeaf + ", children=" + children + "]";
-    }
-}

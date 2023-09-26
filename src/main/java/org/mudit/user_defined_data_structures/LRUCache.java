@@ -36,6 +36,7 @@ public class LRUCache {
     private final int capicity;
     private int count;
     private Node head, tail;
+
     public LRUCache(int capacity) {
         map = new HashMap<>();
         this.capicity = capacity;

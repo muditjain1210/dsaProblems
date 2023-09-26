@@ -29,7 +29,6 @@ import lombok.extern.log4j.Log4j2;
  * Input:  s1 = "peaks", s2 = "geeks"
  * Output: no
  * Number of edits is 2
- *
  */
 @Log4j2
 public class OneEditAwayString {
@@ -61,7 +60,7 @@ public class OneEditAwayString {
 
         //Check if s1 is one add character away
         if ((s2.length() - s1.length()) == 1) {
-            for (int i= 0,j = 0; i < s1.length() && j<s2.length();j++) {
+            for (int i = 0, j = 0; i < s1.length() && j < s2.length(); j++) {
                 if (s1.charAt(i) == s2.charAt(j)) {
                     i++;
                     continue;
@@ -78,7 +77,7 @@ public class OneEditAwayString {
 
         //Check if s1 is one delete character away
         if ((s1.length() - s2.length()) == 1) {
-            for (int i= 0,j = 0; i < s2.length() && j<s1.length();j++) {
+            for (int i = 0, j = 0; i < s2.length() && j < s1.length(); j++) {
                 if (s2.charAt(i) == s1.charAt(j)) {
                     i++;
                     continue;

@@ -17,6 +17,7 @@ public class CheckPalindromePermutation {
     /**
      * This function will check there should be at most one character which has
      * odd frequency. If all characters have even frequency, will return true
+     *
      * @param string
      * @return
      */

@@ -14,7 +14,7 @@ class CheckPermutationTest {
     }
 
     @Test
-    void checkStringPermutatUsingMapTest(){
+    void checkStringPermutatUsingMapTest() {
         Assertions.assertTrue(CheckPermutation.checkStringPermutatUsingMap("abc", "bca"));
         Assertions.assertTrue(CheckPermutation.checkStringPermutatUsingMap("aabbcc", "cbbcaa"));
         Assertions.assertFalse(CheckPermutation.checkStringPermutatUsingMap("abc", "def"));

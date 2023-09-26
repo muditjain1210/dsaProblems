@@ -24,6 +24,7 @@ public class HappyNumber {
      * get the digits of input number, get their sum of squares, if it is 1 return true,
      * else check whether we already received that sum, if yes return false.
      * This will take some linear space, not constant space..
+     *
      * @param n input number
      * @return true or false
      */
@@ -50,6 +51,7 @@ public class HappyNumber {
 
     /**
      * This technique will take constant space, one for slow sum, another for fast sum
+     *
      * @param n
      * @return
      */

@@ -10,9 +10,9 @@ enum Mammal {
 }
 
 public class AnimalQueue {
-    private int count = 0;
     private final Queue<Animal> dogs;
     private final Queue<Animal> cats;
+    private int count = 0;
 
     public AnimalQueue() {
         dogs = new LinkedList<>();
@@ -61,6 +61,7 @@ public class AnimalQueue {
     private class Animal {
         private final Mammal type;
         private final int stamp;
+
         private Animal(Mammal type, int stamp) {
             this.type = type;
             this.stamp = stamp;

@@ -1,13 +1,74 @@
 package org.mudit.array_string;
 
+import java.util.Objects;
+
 public class RotateMatrixBy90 {
 
     public static void main(String[] args) {
-        int[][] mat = {{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}, {13, 14, 15, 16}};
+        Long l = null;
+        Long l2 = 12l;
+        if (Objects.equals(l, l2)) {
+            System.out.println("yes");
+        }
+    }
 
-        rotateMatrixAntiClockwiseUsingTransposeAndHorizontalFlip(mat);
-        displayMatrix(mat);
+    /**
+     * Rotate matrix by 90 degree anti-clockwise.
+     *
+     * @param mat input 2D array
+     */
+    public static void rotateMatrix(int[][] mat) {
+        int k = 0;
+        while (k < mat.length - 2) {
+            int length = mat.length - 1 - k;
+            for (int i = length, j = k; i > k && j < length; i--, j++) {
+                int temp1 = mat[i][k];
+                mat[i][k] = mat[k][j];
+                int temp2 = mat[length][i];
+                mat[length][i] = temp1;
+                int temp3 = mat[j][length];
+                mat[j][length] = temp2;
+                mat[k][j] = temp3;
+            }
+            k++;
+        }
+    }
 
+    public static void transposeMatrix2(int[][] arr) {
+        int level = arr.length / 2;
+        int k = 0;
+        while (k < level) {
+            int i = k + 1;
+            int j = k;
+            //Upper row
+            swap(i, j, k, arr);
+
+            //Lower row
+            j = arr.length - 1 - k;
+            swap(i, j, k, arr);
+            k++;
+        }
+    }
+
+    private static void swap(int i, int j, int k, int[][] arr) {
+        while (i < arr.length - k) {
+            int temp = arr[i][j];
+            arr[i][j] = arr[j][i];
+            arr[j][i] = temp;
+            i++;
+        }
+    }
+
+    static void flipAlongHorizontalAxis2(int[][] mat) {
+        int k = mat.length / 2;
+        for (int i = 0; i < k; i++) {
+            for (int j = 0; j < mat.length; j++) {
+                // flip only half of the rows along horizontal axis
+                int temp = mat[i][j];
+                mat[i][j] = mat[mat.length - 1 - i][j];
+                mat[mat.length - 1 - i][j] = temp;
+            }
+        }
     }
 
     static void rotateMatrixClockwiseUsingTransposeAndVerticalFlip(int[][] mat) {
@@ -18,14 +79,14 @@ public class RotateMatrixBy90 {
     }
 
     static void rotateMatrixAntiClockwiseUsingTransposeAndHorizontalFlip(int[][] mat) {
-        // First Transpose the matrix i.e change rows to columns and columns to rows..
+        // First Transpose the matrix i.e. change rows to columns and columns to rows..
         transposeMatrix(mat);
         // Now we will do horizontal flip i.e swap values along horizontal lines..
-        flipAlongHorizontallAxis(mat);
+        flipAlongHorizontalAxis(mat);
     }
 
     static void transposeMatrix(int[][] mat) {
-        for (int i = 0; i < mat.length; i++) {
+        for (int i = 1; i < mat.length; i++) {
             for (int j = 0; j < i; j++) {
                 // will swap lower half with upper half along diagonal..
                 int temp = mat[i][j];
@@ -46,7 +107,7 @@ public class RotateMatrixBy90 {
         }
     }
 
-    static void flipAlongHorizontallAxis(int[][] mat) {
+    static void flipAlongHorizontalAxis(int[][] mat) {
         for (int i = 0; i < mat.length / 2; i++) {
             for (int j = 0; j < mat.length; j++) {
                 // flip only half of the rows along horizontal axis
@@ -59,9 +120,9 @@ public class RotateMatrixBy90 {
 
     // Function to print the matrix
     static void displayMatrix(int[][] mat) {
-        for (int i = 0; i < mat.length; i++) {
+        for (int[] ints : mat) {
             for (int j = 0; j < mat.length; j++) {
-                System.out.print(" " + mat[i][j]);
+                System.out.print(" " + ints[j]);
             }
             System.out.print("\n");
         }

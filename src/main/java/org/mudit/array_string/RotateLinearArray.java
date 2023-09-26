@@ -1,6 +1,11 @@
 package org.mudit.array_string;
 
+import lombok.extern.log4j.Log4j2;
+
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Rotate an array to the left by k positions without using extra space.k can be greater than the size of the array.
@@ -10,65 +15,71 @@ import java.util.HashMap;
  *
  * @author jainm15
  */
+@Log4j2
 public class RotateLinearArray {
-
-    public static void main(String[] args) {
-
-        int[] arr = new int[100000];
-
-        for (int i = 0; i < arr.length; i++) {
-            arr[i] = i;
-        }
-        long time = System.currentTimeMillis();
-        arr = rotateLeftUsingMap(arr, arr.length - 3);
-        System.out.println(System.currentTimeMillis() - time);
-
-        time = System.currentTimeMillis();
-        arr = rotateLeft(arr, arr.length - 3);
-        System.out.println(System.currentTimeMillis() - time);
-        /*
-         * for (int i = 0; i < arr.length; i++) {
-         * System.out.println(arr[i]);
-         * }
-         */
-
-    }
-
-    public static int[] rotateLeft(int[] arr, int k) {
-        // Time: O(K*N) Space: Constant
+    /**
+     * This method will take O(k*n) time complexity but will take constant space
+     *
+     * @param arr
+     * @param k
+     * @return
+     */
+    public static List<Integer> rotateLeftKTimes(int[] arr, int k) {
+        //rotating array by arr.length times will give original array itself
+        //If k is greater than arr.length we can get actual rotations by this:
         k = k % arr.length;
-        if (k == 0) {
-            return arr;
-        }
-        for (int j = 0; j < k; j++) {
-            int temp = arr[0];
 
-            for (int i = 0; i < arr.length - 1; i++) {
-                arr[i] = arr[i + 1];
+        while (k > 0) {
+            int firstElement = arr[0];
+            for (int index = 1; index < arr.length; index++) {
+                arr[index - 1] = arr[index];
             }
-            arr[arr.length - 1] = temp;
+            arr[arr.length - 1] = firstElement;
+            k--;
         }
-        return arr;
+        for (int j : arr) {
+            System.out.print(j + " ");
+        }
+        return Arrays.stream(arr).boxed().toList();
     }
 
-    public static int[] rotateLeftUsingMap(int[] arr, int k) {
-        // Time: O(N) Space: O(N)
+    public static List<Integer> rotateLeftKTimesUsingStorage(int[] arr, int k) {
+        //rotating array by arr.length times will give original array itself
+        //If k is greater than arr.length we can get actual rotations by this:
         k = k % arr.length;
-        if (k == 0) {
-            return arr;
-        }
-        HashMap<Integer, Integer> indexAfterKRot = new HashMap<>();
+
+        //Store all elements with their index as key and element at index and value in map
+        Map<Integer, Integer> map = new HashMap<>();
         for (int i = 0; i < arr.length; i++) {
-            int diff = i - k;
-            // new index after k rotations would be (i-k) if (i-k) is negative it
-            // means element's new index is rotated towards end
-            int newIndex = diff < 0 ? arr.length + diff : diff;
-            indexAfterKRot.put(arr[i], newIndex);
+            map.put(i, arr[i]);
         }
 
-        for (Integer i : indexAfterKRot.keySet()) {
-            arr[indexAfterKRot.get(i)] = i;
+        for (int index = 0; index < arr.length; index++) {
+            int newIndex = index - k; //this will k times left shift
+            if (newIndex < 0) {   //negative means number has to moved to right side..
+                newIndex = arr.length + newIndex;
+            }
+            arr[newIndex] = map.get(index);
         }
-        return arr;
+
+        for (int j : arr) {
+            System.out.print(j + " ");
+        }
+        return Arrays.stream(arr).boxed().toList();
+    }
+
+    public static void printKTimesLeftRotatedArray(int[] arr, int k) {
+        //rotating array by arr.length times will give original array itself
+        //If k is greater than arr.length we can get actual rotations by this:
+        k = k % arr.length;
+
+        log.info("Rotating input array {} times", k);
+        for (int index = 0; index < arr.length; index++) {
+            int newIndex = index - k; //this will k times left shift
+            if (newIndex < 0) {   //negative means number has to moved to right side..
+                newIndex = arr.length + newIndex;
+            }
+            System.out.println(arr[newIndex]);
+        }
     }
 }

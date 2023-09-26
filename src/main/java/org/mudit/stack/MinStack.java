@@ -6,6 +6,7 @@ public class MinStack {
 
     private final Stack<Integer> mainStack;
     private final Stack<Integer> minStack;
+
     public MinStack(Stack<Integer> mainStack, Stack<Integer> minStack) {
         super();
         this.mainStack = mainStack;
